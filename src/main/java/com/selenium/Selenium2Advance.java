@@ -16,11 +16,10 @@ public class Selenium2Advance {
 
 public static void main(String[] args){
     WebDriver driver = new FirefoxDriver();
-    driver.get("http://localhost:63342/Selenium/com/selenium/TestPage.html");
+    driver.get("http://localhost:63342/MySel20Proj/com/selenium/TestPage.html");
     List<WebElement> radio = driver.findElements(By.name("color"));
     //radio.get(2).click();
-    for (WebElement element: radio
-         ) {
+    for (WebElement element: radio) {
         if(element.isSelected())
             System.out.println(element.getAttribute("value"));
     }

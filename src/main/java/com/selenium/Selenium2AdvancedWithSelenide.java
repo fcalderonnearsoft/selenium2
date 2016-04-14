@@ -1,5 +1,6 @@
 package com.selenium;
 
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -12,18 +13,24 @@ public class Selenium2AdvancedWithSelenide {
     public static void main(String[] args){
         //WebDriver driver = new FirefoxDriver();
         open("http://localhost:63342/MySel20Proj/com/selenium/TestPage.html");
-        $$(By.name("color")).get(2).click();
-        System.out.println($$(By.name("color")).get(2).getValue());
-        $("#select").selectOption("Frank");
-        $(".btn").click();
+        getElementsByName("color",2).click();
+        System.out.println(getElementsByName("color", 2).getValue());
+        selectAnOption("#select", "Frank");
+        clickButton(".btn");
         //$("#submit").click();
         //$(".loading_progress").should(disappear); // Waits until element disappears
         //$("#username").shouldHave(text("Hello, Johny!")); // Waits until element gets text
+    }
 
+    private static void clickButton(String s) {
+        $(".btn").click();
+    }
 
+    private static void selectAnOption(String id, String name) {
+        $(id).selectOption(name);
+    }
 
-
-
-
+    private static SelenideElement getElementsByName(String name, int index) {
+        return $$(By.name(name)).get(index);
     }
 }

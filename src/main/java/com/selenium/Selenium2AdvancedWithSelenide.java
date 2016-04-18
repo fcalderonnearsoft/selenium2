@@ -11,15 +11,11 @@ import static com.codeborne.selenide.Selenide.open;
  */
 public class Selenium2AdvancedWithSelenide {
     public static void main(String[] args){
-        //WebDriver driver = new FirefoxDriver();
         open("http://localhost:63342/MySel20Proj/com/selenium/TestPage.html");
         getElementsByName("color",2).click();
         System.out.println(getElementsByName("color", 2).getValue());
         selectAnOption("#select", "Frank");
         clickButton(".btn");
-        //$("#submit").click();
-        //$(".loading_progress").should(disappear); // Waits until element disappears
-        //$("#username").shouldHave(text("Hello, Johny!")); // Waits until element gets text
     }
 
     private static void clickButton(String s) {
